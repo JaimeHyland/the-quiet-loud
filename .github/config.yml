@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+- name: Bug Report
+  url: https://github.com/JaimeHyland/Kanban-for-Mellifera/issues/new?template=bug_report.md
+  about: Use this template to report a bug.
+  
