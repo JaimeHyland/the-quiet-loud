@@ -6,4 +6,10 @@ labels: []
 assignees: []
 ---
 
-Please describe the system setup task here. You can include steps, links, or notes needed to complete this setup.
+## System Setup Checklist
+
+- [ ] Install dependencies
+- [ ] Configure environment variables
+- [ ] Verify database connection
+- [ ] Run migrations
+- [ ] Seed initial data
