@@ -24,7 +24,11 @@ A "With Heart" hackathon project: a web app that helps users name an emotion fro
 We chose a calming colour palette to help users feel safe and supported while interacting with the app.
 
 ## Colour Scheme
-...
+Soft neutrals keep the space gentle and welcoming, while the darker tones provide grounding and clarity. Together, the palette reflects the app’s purpose: creating an environment where users can slow down, breathe, and be honest with themselves.
+
+The colour palette was generated using the online tool [Coolors](https://coolors.co/c9a96e-f7f2eb-ede5d8-a89e92-6b6158-1e1c1a).
+
+![Colour Palette](frontend/docs/colour_scheme.png)
 
 ## Typography
 ...
