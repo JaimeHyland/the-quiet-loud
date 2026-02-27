@@ -4,5 +4,12 @@
   "python.linting.enabled": true,
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": ["--line-length", "88"],
-  "python.linting.flake8Args": ["--max-line-length=88"]
+  "python.linting.flake8Args": [
+    "--max-line-length=88"
+  ],
+  "cSpell.words": [
+    "tfidf",
+    "toarray",
+    "vectorizer"
+  ]
 }
