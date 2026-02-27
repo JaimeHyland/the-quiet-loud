@@ -27,7 +27,7 @@
 
         body {
             font-family: 'Cormorant Garamond', serif;
-            background: var(--warm);
+            background: var(--cream);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -40,7 +40,25 @@
         h1 {
             color: var(--dark);
             font-size: 1.8em;
-            line-height: 50%;
+            line-height: 150%;
+            padding: 0 20px;
+
+            .mobile-only {
+                display: none;
+            }
+
+            @media (max-width: 800px) {
+              .mobile-only {
+                  display: block;
+                  color: var(--gold);
+              }
+            }
+        }
+
+        @media (max-width: 800px) {
+            h1 {
+                  font-size: 1.5em;
+              }
         }
 
         div {
@@ -48,6 +66,13 @@
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+
+        /* Hide image on mobile */
+        @media (max-width: 800px) {
+            div {
+                display: none;
+            }
         }
 
         img {
@@ -61,6 +86,7 @@
             font-size: 1.4em;
             text-decoration: none;
             font-weight: 600;
+            margin-top: 20px;
             padding: 10px 20px;
             border: 2px solid var(--mid);
             border-radius: 8px;
@@ -79,8 +105,13 @@
 </head>
 
 <body>
-    <h1>Hmm… we can’t find this page.</h1>
-    <h1>Take a moment to check in with your mood and head back home.</h1>
+    <h1>
+    <span class="mobile-only">404 Page Not Found</span>
+    Hmm… we can’t find this page.
+    <br>
+    Take a moment 
+    <span style="color: var(--gold); font-style: italic; font-weight: 400; font-size: 1.2em">to check in with your mood</span> 
+    and head back home.</h1>
 
     <div>
         <img src="assets/images/404.png" alt="The Quiet Loud 404 Banner">
