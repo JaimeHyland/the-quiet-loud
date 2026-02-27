@@ -1,11 +1,15 @@
-# This script loads the trained Simple Neural Network model, the TF-IDF vectorizer, and the label encoder 
-# to make predictions on new user input. The code also includes error handling to ensure that all necessary files 
-# are loaded correctly, and it provides detailed output of the predicted emotion along with confidence scores for each emotion class.
+# This script loads the trained Simple Neural Network model, the TF-IDF
+# vectorizer, and the label encoder to make predictions on new user input.
+# The code also includes error handling to ensure that all necessary files
+# are loaded correctly, and it provides detailed output of the predicted
+# emotion along with confidence scores for each emotion class.
 # Make sure to have the following files in the same directory as this script:
 # - nn_model.keras, - tfidf_vectorizer.pkl, and - label_encoder.pkl
-# You can test the model with any user input by changing the 'user_answer' variable. 
-# The script will output the predicted emotion and the confidence level for that prediction, as well as the probabilities 
-# for all emotion classes: anger, fear, joy, love, sad and surprise
+# You can test the model with any user input by changing the 'user_answer'
+# variable.
+# The script will output the predicted emotion and the confidence level for
+# that prediction, as well as the probabilities for all emotion classes: anger,
+# fear, joy, love, sad and surprise.
 import pickle
 import numpy as np
 import tensorflow as tf
@@ -16,22 +20,30 @@ warnings.filterwarnings('ignore')
 
 load_model = tf.keras.models.load_model('nn_model.keras')
 
-# Loading the TF-IDF vectoriser that was used during training
+# Loading the TF-IDF vectorizer that was used during training
 try:
-    with open('tfidf_vectorizer.pkl', 'rb') as f: # If file in the root or provide the relative path
+    # If file in the root or provide the relative path
+    with open('tfidf_vectorizer.pkl', 'rb') as f:
         tfidf = pickle.load(f)
     print("TF-IDF vectorizer loaded successfully!")
 except FileNotFoundError:
-    print("TF-IDF vectorizer not found. Please upload it to the root location or provide the relative path.")
+    print(
+        "TF-IDF vectorizer not found."
+        "Please upload it to the root location or provide the relative path."
+    )
     tfidf = None
 
 # Load the label encoder
 try:
-    with open('label_encoder.pkl', 'rb') as f: # If file in the root or provide the relative path
+    # If file in the root or provide the relative path
+    with open('label_encoder.pkl', 'rb') as f:
         label_encoder = pickle.load(f)
     print("Label encoder loaded successfully!")
 except FileNotFoundError:
-    print("Label encoder not found. Please upload it to the root location or provide the relative path.")
+    print(
+        "Label encoder not found. Please upload it to the root location or"
+        "provide the relative path."
+    )
     label_encoder = None
 
 # Check if all artifacts loaded properly
@@ -43,10 +55,14 @@ if None in [load_model, tfidf, label_encoder]:
     print("  - label_encoder.pkl")
     exit()
 
-# An example of the user answer. Entered as string. Any block of text can be entered. Feel free to try your own text.
-user_answer = ['i have a ton of physical energy and mentally i feel very peaceful and serene']
+# An example of the user answer. Entered as string. Any block of text can be
+# entered. Feel free to try your own text.
+user_answer = [
+    'I have a ton of physical energy and mentally'
+    'I feel very peaceful and serene'
+]
 
-# Vectorise and prepare the user answer data for the model fitting
+# Vectorize and prepare the user answer data for the model fitting
 
 user_nn = tfidf.transform(user_answer)
 user_dense = user_nn.toarray()
@@ -68,6 +84,6 @@ print(f"User input: {user_answer[0]}")
 print(f"{'='*50}")
 print(f"Predicted emotion: {predicted_emotion}")
 print(f"Confidence: {confidence:.4f} ({confidence*100:.2f}%)")
-print(f"\nAll probabilities:")
+print("\nAll probabilities:")
 for emotion, prob in zip(label_encoder.classes_, probabilities):
     print(f"  {emotion}: {prob:.4f}")
