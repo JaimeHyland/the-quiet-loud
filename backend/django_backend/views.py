@@ -8,6 +8,9 @@ from . ml_service import model, tfidf, label_encoder
 def home(request):
     return render(request, 'index.html')
 
+def today(request):
+    return render(request, 'today.html')
+
 @csrf_exempt
 def predict_emotion(request):
     if request.method == 'POST':
