@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 import json
 import numpy as np
 from . ml_service import model, tfidf, label_encoder
@@ -8,9 +9,11 @@ from . ml_service import model, tfidf, label_encoder
 def home(request):
     return render(request, 'index.html')
 
+@login_required
 def today(request):
     return render(request, 'today.html')
 
+@login_required
 def journey(request):
     return render(request, 'journey.html')
 
