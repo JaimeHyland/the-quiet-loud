@@ -20,9 +20,10 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="icon" href="assets/images/positive.png" type="image/png" />
 
     <style>
@@ -152,6 +153,72 @@
         font-weight: 600;
       }
 
+      /* Hamburger menu for mobiles */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: none;
+        padding: 4px;
+        z-index: 200;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 1.5px;
+        background: var(--dark);
+        transition: all 0.3s ease;
+        transform-origin: center;
+      }
+
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+      @media (max-width: 768px) {
+        nav {
+          padding: 20px 24px;
+          position: relative;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          gap: 0;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--cream);
+          border-top: 1px solid rgba(30, 28, 26, 0.08);
+          border-bottom: 1px solid rgba(30, 28, 26, 0.08);
+          padding: 16px 24px;
+          z-index: 150;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links li {
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(30, 28, 26, 0.06);
+        }
+        .nav-links li:last-child {
+          border-bottom: none;
+        }
+        .nav-links a {
+          font-size: 0.85rem;
+        }
+      }
+
       .container {
         max-width: 900px;
         margin: 0 auto;
@@ -245,7 +312,12 @@
 
     <nav>
       <a href="index.html" class="nav-logo">The Quiet Loud</a>
-      <ul class="nav-links">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="today.html">Today</a></li>
         <li><a href="journey.html">My Journey</a></li>
@@ -270,20 +342,30 @@
 
       <div class="card emergency fade-section">
         <h2>🚨 In an Emergency</h2>
-        <p>Need an immidate support? If you or someone else is in immediate danger:</p>
-        <p><strong>📞 Call 999</strong> or go to your nearest A&E department.</p>
         <p>
-          If you need urgent mental health help but it's not life-threatening:</p>
+          Need an immidate support? If you or someone else is in immediate
+          danger:
+        </p>
+        <p>
+          <strong>📞 Call 999</strong> or go to your nearest A&E department.
+        </p>
+        <p>
+          If you need urgent mental health help but it's not life-threatening:
+        </p>
         <p><strong>📞 Call 111</strong> and select the mental health option.</p>
       </div>
 
-      <h3 class="fade-section section-title"><i class="fa-regular fa-comment-dots"></i>24/7 Listening & Crisis Support</h3>
+      <h3 class="fade-section section-title">
+        <i class="fa-regular fa-comment-dots"></i>24/7 Listening & Crisis
+        Support
+      </h3>
 
       <p class="fade-section pre-text">
-          If you’re not in immediate danger but feel like you need some extra support, 
-          there are non-urgent services available to help. Whether you’d like to talk 
-          things through, get advice, or simply feel heard, trained professionals and 
-          support organisations are there to listen and guide you at your own pace.
+        If you’re not in immediate danger but feel like you need some extra
+        support, there are non-urgent services available to help. Whether you’d
+        like to talk things through, get advice, or simply feel heard, trained
+        professionals and support organisations are there to listen and guide
+        you at your own pace.
       </p>
 
       <div class="card fade-section">
@@ -317,15 +399,18 @@
         >
       </div>
 
-      <h3 class="fade-section section-title"><i class="fa-solid fa-hand-holding-heart"></i> Charities & Ongoing Support</h3>
+      <h3 class="fade-section section-title">
+        <i class="fa-solid fa-hand-holding-heart"></i> Charities & Ongoing
+        Support
+      </h3>
 
       <p class="fade-section pre-text">
-          There are a number of charities and support organizations that offer guidance, 
-          listening, and practical help. These services are free, confidential, and available 
-          if you want extra support or someone to talk to. You don’t have to face things alone — 
-          reaching out is always okay.
+        There are a number of charities and support organizations that offer
+        guidance, listening, and practical help. These services are free,
+        confidential, and available if you want extra support or someone to talk
+        to. You don’t have to face things alone — reaching out is always okay.
       </p>
-      
+
       <div class="card fade-section">
         <strong>Mind</strong><br />
         Information and mental health support<br />
@@ -363,13 +448,15 @@
         🌐 <a href="https://www.bipolaruk.org" target="_blank">bipolaruk.org</a>
       </div>
 
-      <h3 class="fade-section section-title"><i class="fa-solid fa-house-medical"></i> NHS Talking Therapies</h3>
+      <h3 class="fade-section section-title">
+        <i class="fa-solid fa-house-medical"></i> NHS Talking Therapies
+      </h3>
 
       <p class="fade-section pre-text">
-          NHS Talking Therapies provide free and confidential support for anyone 
-          feeling stressed, anxious, or low. You can speak with trained professionals 
-          who offer practical strategies, guidance, and a safe space to talk about 
-          how you’re feeling.
+        NHS Talking Therapies provide free and confidential support for anyone
+        feeling stressed, anxious, or low. You can speak with trained
+        professionals who offer practical strategies, guidance, and a safe space
+        to talk about how you’re feeling.
       </p>
 
       <div class="card fade-section">
@@ -394,14 +481,16 @@
         >
       </div>
 
-      <h3 class="fade-section section-title"><i class="fa-solid fa-magnifying-glass"></i> Find Your Local Services</h3>
+      <h3 class="fade-section section-title">
+        <i class="fa-solid fa-magnifying-glass"></i> Find Your Local Services
+      </h3>
 
       <p class="fade-section pre-text">
-          Hub of Hope is a free online directory connecting you to mental health 
-          charities and support services across the UK. It helps you find local 
-          organizations and resources tailored to your needs.
+        Hub of Hope is a free online directory connecting you to mental health
+        charities and support services across the UK. It helps you find local
+        organizations and resources tailored to your needs.
       </p>
-      
+
       <div class="card fade-section">
         <strong>Hub of Hope</strong><br />
         A UK directory to search for local mental health support.<br />
@@ -409,12 +498,13 @@
       </div>
 
       <p class="note fade-section">
-        Disclaimer: This page is intended for signposting purposes only and does not replace 
-        professional medical or mental health advice. If you are experiencing a 
-        crisis or feel that you are in immediate danger, please call 999 or go to 
-        your nearest emergency service. For non-urgent support, the links and 
-        resources provided here can help you find trained professionals, support 
-        organizations, and confidential services across the UK.
+        Disclaimer: This page is intended for signposting purposes only and does
+        not replace professional medical or mental health advice. If you are
+        experiencing a crisis or feel that you are in immediate danger, please
+        call 999 or go to your nearest emergency service. For non-urgent
+        support, the links and resources provided here can help you find trained
+        professionals, support organizations, and confidential services across
+        the UK.
       </p>
     </div>
 
@@ -444,6 +534,21 @@
       document
         .querySelectorAll(".fade-section")
         .forEach((el) => observer.observe(el));
+
+      // Hamburger menu functionality
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
     </script>
   </body>
 </html>
