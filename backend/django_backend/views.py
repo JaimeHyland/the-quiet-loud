@@ -6,37 +6,49 @@ import json
 import numpy as np
 from . ml_service import model, tfidf, label_encoder
 
+
 def home(request):
     return render(request, 'index.html')
+
 
 @login_required
 def today(request):
     return render(request, 'today.html')
 
+
 @login_required
 def journey(request):
     return render(request, 'journey.html')
 
+
 def support(request):
     return render(request, 'support.html')
+
+
+@login_required
+def thought_shift(request):
+    return render(request, "test_harness.html")
+
 
 @csrf_exempt
 def predict_emotion(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         user_text = [data.get('text', '')]
-        
+
         user_nn = tfidf.transform(user_text)
         user_dense = user_nn.toarray()
-        
+
         probabilities = model.predict(user_dense, verbose=0)[0]
         predicted_index = np.argmax(probabilities)
-        predicted_emotion = label_encoder.inverse_transform([predicted_index])[0]
+        predicted_emotion = label_encoder.inverse_transform(
+            [predicted_index]
+        )[0]
         confidence = float(np.max(probabilities))
-        
+
         return JsonResponse({
             'emotion': predicted_emotion,
             'confidence': confidence
         })
-    
+
     return JsonResponse({'error': 'POST request required'}, status=400)

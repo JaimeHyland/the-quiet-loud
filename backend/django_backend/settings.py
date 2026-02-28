@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     # Allauth apps
     'allauth',
     'allauth.account',
+
+    # Custom apps
+    'thought_shift',
 ]
 
 SITE_ID = 1

@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import home, today, predict_emotion, journey, support
+from .views import (
+    home,
+    today,
+    predict_emotion,
+    journey,
+    support,
+    thought_shift,
+)
+
 
 urlpatterns = [
     path('', home, name='home'),
@@ -25,5 +33,6 @@ urlpatterns = [
     path('support/', support, name='support'),
     path('predict/', predict_emotion, name='predict'),
     path('admin/', admin.site.urls),
+    path("test_harness/", thought_shift, name='thought_shift'),
     path('accounts/', include('allauth.urls')),
 ]
