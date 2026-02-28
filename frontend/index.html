@@ -551,6 +551,10 @@ nav {
     color: var(--dark);
 }
 
+.dropdown {
+    position: relative;
+}
+
 /* Dropdown menu container */
 .dropdown-content {
     display: none;
@@ -777,6 +781,21 @@ nav {
 
         document.querySelectorAll('.step, .promise-item').forEach(el => observer.observe(el));
     </script>
+    <script>
+        const accountBtn = document.getElementById('accountBtn');
+        const accountMenu = document.getElementById('accountMenu');
+
+        accountBtn.addEventListener('click', () => {
+            accountMenu.style.display = accountMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Optional: hide menu if clicked outside
+        document.addEventListener('click', (e) => {
+            if (!accountBtn.contains(e.target) && !accountMenu.contains(e.target)) {
+                accountMenu.style.display = 'none';
+            }
+        });
+    </script>  
 </body>
 
 </html>
