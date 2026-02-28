@@ -11,6 +11,12 @@ def home(request):
 def today(request):
     return render(request, 'today.html')
 
+def journey(request):
+    return render(request, 'journey.html')
+
+def support(request):
+    return render(request, 'support.html')
+
 @csrf_exempt
 def predict_emotion(request):
     if request.method == 'POST':
