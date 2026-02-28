@@ -13,6 +13,10 @@ class QuestionnaireResponse(models.Model):
 
 
 class ChatMessage(models.Model):
+    ROLE_CHOICES = [
+        ("user", "User"),
+        ("bot", "AI"),
+    ]
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -23,6 +27,7 @@ class ChatMessage(models.Model):
         null=True,
         blank=True,
     )
+    role = models.CharField(max_length=4, choices=ROLE_CHOICES, default="user")
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
