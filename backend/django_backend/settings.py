@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     # Allauth apps
     'allauth',
     'allauth.account',
+    
+    # Apps
+    'mood'
 ]
 
 SITE_ID = 1
