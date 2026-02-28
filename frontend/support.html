@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Free UK mental health support resources including helplines, NHS services, charities, and therapy options."
+    />
+    <meta
+      name="keywords"
+      content="mental health support UK, crisis helpline, free counselling, NHS talking therapies, Samaritans, Mind"
+    />
+    <meta name="author" content="Plot Twist (February Hackathon, Group 6)" />
+
+    <title>UK Mental Health Support</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="assets/images/positive.png" type="image/png" />
+
+    <style>
+      :root {
+        --cream: #f7f2eb;
+        --warm: #ede5d8;
+        --gold: #c9a96e;
+        --dark: #1e1c1a;
+        --mid: #6b6158;
+        --light: #a89e92;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--dark);
+        line-height: 1.7;
+        overflow-x: hidden;
+        cursor: none;
+      }
+
+      .cursor {
+        width: 10px;
+        height: 10px;
+        background: var(--gold);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.15s ease;
+        transform: translate(-50%, -50%);
+      }
+
+      .cursor-ring {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--gold);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9998;
+        transition: all 0.25s ease;
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+      }
+
+      /* Grain overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1000;
+        opacity: 0.4;
+      }
+
+      /* Fade-up animation reused from index */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Elements fade in as they scroll into view */
+      .fade-section {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: all 0.7s ease;
+      }
+
+      .fade-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Navigation */
+      nav {
+        padding: 24px 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(30, 28, 26, 0.08);
+      }
+
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--dark);
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--mid);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--dark);
+      }
+
+      .nav-links a.active {
+        color: var(--mid);
+        font-weight: 600;
+      }
+
+      /* Hamburger menu for mobiles */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: none;
+        padding: 4px;
+        z-index: 200;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 1.5px;
+        background: var(--dark);
+        transition: all 0.3s ease;
+        transform-origin: center;
+      }
+
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+      @media (max-width: 768px) {
+        nav {
+          padding: 20px 24px;
+          position: relative;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          gap: 0;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--cream);
+          border-top: 1px solid rgba(30, 28, 26, 0.08);
+          border-bottom: 1px solid rgba(30, 28, 26, 0.08);
+          padding: 16px 24px;
+          z-index: 150;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links li {
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(30, 28, 26, 0.06);
+        }
+        .nav-links li:last-child {
+          border-bottom: none;
+        }
+        .nav-links a {
+          font-size: 0.85rem;
+        }
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 24px 60px;
+        animation: fadeUp 1s ease 0.2s forwards;
+      }
+
+      .intro {
+        padding-bottom: 40px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 30px;
+        color: var(--mid);
+      }
+      
+      @media (max-width: 800px) {
+            h1 {
+                font-size: 2em;
+                line-height: 100%;
+            }
+          }
+
+      h2 {
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      h3 {
+        color: var(--gold);
+        font-size: 2rem;
+        padding: 40px 0 20px 0;
+      }
+
+      @media (max-width: 800px) {
+            h3 {
+                font-size: 1.5rem;
+                line-height: 100%;
+            }
+          }
+
+      i {
+        color: var(--mid);
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background-color: var(--light);
+      }
+
+      .pre-text {
+        padding-bottom: 30px;
+      }
+
+      .card {
+        background: var(--warm);
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(30, 28, 26, 0.08);
+        margin-bottom: 20px;
+        color: var(--dark);
+      }
+
+      .emergency {
+        background: var(--mid);
+        color: var(--cream);
+      }
+
+      a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .note {
+        margin-top: 60px;
+        font-size: 0.9rem;
+        color: var(--mid);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <nav>
+      <a href="index.html" class="nav-logo">The Quiet Loud</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="today.html">Today</a></li>
+        <li><a href="journey.html">My Journey</a></li>
+        <li><a href="support.html" class="active">Support</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1 class="fade-section">
+        UK Mental Health <em style="color: var(--gold)">Support</em>
+      </h1>
+
+      <p class="fade-section intro">
+        'The Quiet Loud' app can help you explore your emotions, reflect on how
+        you’re feeling, and provide gentle support when things feel heavy.
+        However, it is not a replacement for professional help. If you need
+        additional support, it’s always okay to reach out to a trained counselor
+        or healthcare professional. If you’re struggling, feeling overwhelmed,
+        or just need someone to talk to, free and confidential services are
+        available across the UK.
+      </p>
+
+      <div class="card emergency fade-section">
+        <h2>🚨 In an Emergency</h2>
+        <p>
+          Need an immidate support? If you or someone else is in immediate
+          danger:
+        </p>
+        <p>
+          <strong>📞 Call 999</strong> or go to your nearest A&E department.
+        </p>
+        <p>
+          If you need urgent mental health help but it's not life-threatening:
+        </p>
+        <p><strong>📞 Call 111</strong> and select the mental health option.</p>
+      </div>
+
+      <h3 class="fade-section section-title">
+        <i class="fa-regular fa-comment-dots"></i>24/7 Listening & Crisis
+        Support
+      </h3>
+
+      <p class="fade-section pre-text">
+        If you’re not in immediate danger but feel like you need some extra
+        support, there are non-urgent services available to help. Whether you’d
+        like to talk things through, get advice, or simply feel heard, trained
+        professionals and support organisations are there to listen and guide
+        you at your own pace.
+      </p>
+
+      <div class="card fade-section">
+        <strong>Samaritans</strong><br />
+        24/7 emotional support<br />
+        📞 116 123 (free)<br />
+        🌐
+        <a href="https://www.samaritans.org" target="_blank">samaritans.org</a>
+      </div>
+
+      <div class="card fade-section">
+        <strong>Shout Crisis Text Line</strong><br />
+        Free, confidential text support 24/7<br />
+        📲 Text <strong>SHOUT</strong> to 85258
+      </div>
+
+      <div class="card fade-section">
+        <strong>Papyrus HOPELINE247</strong><br />
+        For under 35s experiencing suicidal thoughts<br />
+        📞 0800 068 41 41<br />
+        🌐
+        <a href="https://www.papyrus-uk.org" target="_blank">papyrus-uk.org</a>
+      </div>
+
+      <div class="card fade-section">
+        <strong>CALM</strong><br />
+        Support for anyone feeling down or in crisis<br />
+        🌐
+        <a href="https://www.thecalmzone.net" target="_blank"
+          >thecalmzone.net</a
+        >
+      </div>
+
+      <h3 class="fade-section section-title">
+        <i class="fa-solid fa-hand-holding-heart"></i> Charities & Ongoing
+        Support
+      </h3>
+
+      <p class="fade-section pre-text">
+        There are a number of charities and support organizations that offer
+        guidance, listening, and practical help. These services are free,
+        confidential, and available if you want extra support or someone to talk
+        to. You don’t have to face things alone — reaching out is always okay.
+      </p>
+
+      <div class="card fade-section">
+        <strong>Mind</strong><br />
+        Information and mental health support<br />
+        📞 0300 123 3393<br />
+        🌐 <a href="https://www.mind.org.uk" target="_blank">mind.org.uk</a>
+      </div>
+
+      <div class="card fade-section">
+        <strong>Rethink Mental Illness</strong><br />
+        Advice, peer support and local groups<br />
+        📞 0808 801 0525<br />
+        🌐 <a href="https://www.rethink.org" target="_blank">rethink.org</a>
+      </div>
+
+      <div class="card fade-section">
+        <strong>Anxiety UK</strong><br />
+        Support for anxiety disorders<br />
+        📞 03444 775 774<br />
+        🌐 <a href="https://www.anxietyuk.org.uk" target="_blank"
+          >anxietyuk.org.uk</a
+        >
+      </div>
+
+      <div class="card fade-section">
+        <strong>Beat (Eating Disorders)</strong><br />
+        Support for eating disorders<br />
+        📞 0808 801 0677<br />
+        🌐 <a href="https://www.beateatingdisorders.org.uk" target="_blank"
+          >beateatingdisorders.org.uk</a
+        >
+      </div>
+
+      <div class="card fade-section">
+        <strong>Bipolar UK</strong><br />
+        Peer support for people affected by bipolar<br />
+        🌐 <a href="https://www.bipolaruk.org" target="_blank">bipolaruk.org</a>
+      </div>
+
+      <h3 class="fade-section section-title">
+        <i class="fa-solid fa-house-medical"></i> NHS Talking Therapies
+      </h3>
+
+      <p class="fade-section pre-text">
+        NHS Talking Therapies provide free and confidential support for anyone
+        feeling stressed, anxious, or low. You can speak with trained
+        professionals who offer practical strategies, guidance, and a safe space
+        to talk about how you’re feeling.
+      </p>
+
+      <div class="card fade-section">
+        In England, you can self-refer to
+        <strong>NHS Talking Therapies</strong> for free treatment for anxiety,
+        depression, and stress.<br />
+        🌐
+        <a
+          href="https://www.nhs.uk/service-search/mental-health/find-an-nhs-talking-therapies-service/"
+          target="_blank"
+          >Find local NHS talking therapies</a
+        >
+      </div>
+
+      <div class="card fade-section">
+        In Scotland, <strong>Breathing Space</strong> offers confidential phone
+        support.<br />
+        📞 0800 83 85 87<br />
+        🌐
+        <a href="https://breathingspace.scot" target="_blank"
+          >breathingspace.scot</a
+        >
+      </div>
+
+      <h3 class="fade-section section-title">
+        <i class="fa-solid fa-magnifying-glass"></i> Find Your Local Services
+      </h3>
+
+      <p class="fade-section pre-text">
+        Hub of Hope is a free online directory connecting you to mental health
+        charities and support services across the UK. It helps you find local
+        organizations and resources tailored to your needs.
+      </p>
+
+      <div class="card fade-section">
+        <strong>Hub of Hope</strong><br />
+        A UK directory to search for local mental health support.<br />
+        🌐 <a href="https://hubofhope.co.uk" target="_blank">hubofhope.co.uk</a>
+      </div>
+
+      <p class="note fade-section">
+        Disclaimer: This page is intended for signposting purposes only and does
+        not replace professional medical or mental health advice. If you are
+        experiencing a crisis or feel that you are in immediate danger, please
+        call 999 or go to your nearest emergency service. For non-urgent
+        support, the links and resources provided here can help you find trained
+        professionals, support organizations, and confidential services across
+        the UK.
+      </p>
+    </div>
+
+    <script>
+      // Custom cursor
+      const cursor = document.getElementById("cursor");
+      const ring = document.getElementById("cursorRing");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+        setTimeout(() => {
+          ring.style.left = e.clientX + "px";
+          ring.style.top = e.clientY + "px";
+        }, 80);
+      });
+
+      // Fade-in on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document
+        .querySelectorAll(".fade-section")
+        .forEach((el) => observer.observe(el));
+
+      // Hamburger menu functionality
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
+</html>

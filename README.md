@@ -24,10 +24,33 @@ A "With Heart" hackathon project: a web app that helps users name an emotion fro
 We chose a calming colour palette to help users feel safe and supported while interacting with the app.
 
 ## Colour Scheme
-...
+Soft neutrals keep the space gentle and welcoming, while the darker tones provide grounding and clarity. Together, the palette reflects the app’s purpose: creating an environment where users can slow down, breathe, and be honest with themselves.
+
+The colour palette was generated using the online tool [Coolors](https://coolors.co/c9a96e-f7f2eb-ede5d8-a89e92-6b6158-1e1c1a).
+
+![Colour Palette](frontend/docs/colour_scheme.png)
 
 ## Typography
-...
+
+### Font Choices:
+
+#### Cormorant Garamond: used for headings. 
+This elegant serif font is inspired by classic Garamond typefaces. It adds sophistication and a calm, reflective tone, making it ideal for creating a welcoming, thoughtful atmosphere in a mood-focused app. Its delicate curves and high contrast make headings feel distinctive and readable.
+
+Sample from the [Google Fonts](https://fonts.google.com/specimen/Cormorant+Garamond) website:
+
+![Cormorant Garamond](frontend/docs/cormorant-garamond.png)
+
+#### DM Sans: used for body text. 
+This modern sans-serif font is geometric, clean, and highly legible. It pairs well with a serif heading by providing clarity and accessibility for longer passages of text. DM Sans helps users focus on content without distraction, maintaining a smooth reading experience across devices.
+
+Together, these fonts create a balanced and approachable style, giving the app a professional yet gentle feel, perfectly suited to encouraging users to reflect on their mood and wellbeing.
+
+Sample from the [Google Fonts](https://fonts.google.com/specimen/DM+Sans) website:
+
+![DM Sans](frontend/docs/dm-sans-font.png)
+
+Additionally, [Font Awesome](https://fontawesome.com/) icons were used throughout the site to keep the interface clean, consistent, and visually intuitive.
 
 # Features
 
