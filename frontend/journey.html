@@ -334,10 +334,11 @@
             color: var(--mid);
             line-height: 1.65;
             margin-bottom: 16px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
             overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
         }
 
         .entry-footer {
@@ -399,11 +400,11 @@
     <div class="cursor-ring" id="cursorRing"></div>
 
     <nav>
-        <a href="index.html" class="nav-logo">The Quiet Loud</a>
+        <a href="/" class="nav-logo">The Quiet Loud</a>
         <ul class="nav-links">
-            <li><a href="today.html">Today</a></li>
-            <li><a href="journey.html" class="active">My Journey</a></li>
-            <li><a href="support.html">Support</a></li>
+            <li><a href="/today/">Today</a></li>
+            <li><a href="/journey/" class="active">My Journey</a></li>
+            <li><a href="/support/">Support</a></li>
         </ul>
     </nav>
 
