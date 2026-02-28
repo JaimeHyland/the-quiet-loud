@@ -78,7 +78,7 @@ AUTHENTICATION_BACKENDS = (
 
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 ACCOUNT_LOGIN_METHODS = {'username'}
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/today/"
 LOGOUT_REDIRECT_URL = "/"
 
 
