@@ -1,1 +1,1 @@
-web: gunicorn the-quiet-loud.wsgi --log-file
+web: gunicorn the-quiet-loud.wsgi
