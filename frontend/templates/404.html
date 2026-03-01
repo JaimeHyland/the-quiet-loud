@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}404 — The Quiet Loud{% endblock %}
+
+{% block extra_css %}
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 200px);
+        text-align: center;
+        padding: 60px 24px;
+    }
+
+    h1 {
+        font-family: 'Cormorant Garamond', serif;
+        color: var(--dark);
+        font-size: 1.8em;
+        line-height: 150%;
+        padding: 0 20px;
+        font-weight: 300;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+
+    .four-oh-four-img {
+        margin: 60px 0 70px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .four-oh-four-img img {
+        width: 70%;
+        height: auto;
+    }
+
+    .home-link {
+        color: var(--mid);
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.4em;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: 2px solid var(--mid);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .home-link:hover {
+        background-color: var(--mid);
+        color: var(--cream);
+    }
+
+    .home-link i {
+        padding-right: 10px;
+    }
+
+    @media (max-width: 800px) {
+        h1 {
+            font-size: 1.5em;
+        }
+
+        .mobile-only {
+            display: block;
+            color: var(--gold);
+        }
+
+        .four-oh-four-img {
+            display: none;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+    <h1>
+        <span class="mobile-only">404 Page Not Found</span>
+        Hmm… we can't find this page.
+        <br>
+        Take a moment
+        <span style="color: var(--gold); font-style: italic; font-weight: 400; font-size: 1.2em">to check in with your
+            mood</span>
+        and head back home.
+    </h1>
+
+    <div class="four-oh-four-img">
+        <img src="{% static 'assets/images/404.png' %}" alt="The Quiet Loud 404 Banner">
+    </div>
+
+    <a href="/" class="home-link">
+        <i class="fa-solid fa-house"></i>Go back home
+    </a>
+</main>
+{% endblock %}

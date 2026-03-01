@@ -1,0 +1,192 @@
+/* ============================================
+   AUTH.CSS — login, signup, logout page styles
+   ============================================ */
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    min-height: calc(100vh - 160px);
+}
+
+.auth-card {
+    background: white;
+    border-radius: 20px;
+    padding: 48px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 60px rgba(30, 28, 26, 0.06);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.auth-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.auth-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.auth-title em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.auth-sub {
+    font-size: 0.9rem;
+    color: var(--light);
+    font-style: italic;
+    margin-bottom: 36px;
+    line-height: 1.6;
+}
+
+/* ── FORM ── */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    background: var(--cream);
+    border: 1.5px solid rgba(30, 28, 26, 0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.08);
+}
+
+.password-hint {
+    font-size: 0.75rem;
+    color: var(--light);
+    font-style: italic;
+    margin-top: 6px;
+}
+
+.helptext {
+    display: none;
+}
+
+.errorlist {
+    list-style: none;
+    margin-top: 6px;
+}
+
+.errorlist li {
+    font-size: 0.78rem;
+    color: #c0392b;
+    font-style: italic;
+}
+
+/* ── FORGOT PASSWORD ── */
+.forgot-link {
+    text-align: right;
+    margin-top: -12px;
+    margin-bottom: 20px;
+}
+
+.forgot-link a {
+    font-size: 0.78rem;
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-link a:hover {
+    color: var(--gold);
+}
+
+/* ── SUBMIT BUTTON ── */
+.btn-submit {
+    width: 100%;
+    background: var(--dark);
+    color: var(--cream);
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+}
+
+.btn-submit:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+}
+
+/* ── LOGOUT BUTTON ── */
+.btn-primary {
+    display: inline-block;
+    background: var(--dark);
+    color: var(--cream);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-bottom: 16px;
+}
+
+.btn-primary:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+}
+
+/* ── FOOTER LINK ── */
+.auth-footer {
+    margin-top: 24px;
+    font-size: 0.85rem;
+    color: var(--light);
+    text-align: center;
+}
+
+.auth-footer a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    .auth-card {
+        padding: 32px 24px;
+    }
+}

@@ -1,0 +1,135 @@
+{% extends 'base_support.html' %}
+{% load static %}
+
+{% block title %}UK Mental Health Support — The Quiet Loud{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'assets/css/support.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1 class="fade-section">
+        UK Mental Health <em style="color: var(--gold)">Support</em>
+    </h1>
+
+    <p class="fade-section intro">
+        'The Quiet Loud' app can help you explore your emotions, reflect on how
+        you're feeling, and provide gentle support when things feel heavy.
+        However, it is not a replacement for professional help. If you need
+        additional support, it's always okay to reach out to a trained counselor
+        or healthcare professional. If you're struggling, feeling overwhelmed,
+        or just need someone to talk to, free and confidential services are
+        available across the UK.
+    </p>
+
+    <div class="card emergency fade-section">
+        <h2>🚨 In an Emergency</h2>
+        <p>Need immediate support? If you or someone else is in immediate danger:</p>
+        <p><strong>📞 Call 999</strong> or go to your nearest A&E department.</p>
+        <p>If you need urgent mental health help but it's not life-threatening:</p>
+        <p><strong>📞 Call 111</strong> and select the mental health option.</p>
+    </div>
+
+    <h3 class="fade-section section-title">
+        <i class="fa-regular fa-comment-dots"></i> 24/7 Listening &amp; Crisis Support
+    </h3>
+    <p class="fade-section pre-text">
+        If you're not in immediate danger but feel like you need some extra support, there are non-urgent services
+        available to help.
+    </p>
+
+    <div class="card fade-section">
+        <strong>Samaritans</strong><br>
+        24/7 emotional support<br>
+        📞 116 123 (free)<br>
+        🌐 <a href="https://www.samaritans.org" target="_blank">samaritans.org</a>
+    </div>
+    <div class="card fade-section">
+        <strong>Shout Crisis Text Line</strong><br>
+        Free, confidential text support 24/7<br>
+        📲 Text <strong>SHOUT</strong> to 85258
+    </div>
+    <div class="card fade-section">
+        <strong>Papyrus HOPELINE247</strong><br>
+        For under 35s experiencing suicidal thoughts<br>
+        📞 0800 068 41 41<br>
+        🌐 <a href="https://www.papyrus-uk.org" target="_blank">papyrus-uk.org</a>
+    </div>
+    <div class="card fade-section">
+        <strong>CALM</strong><br>
+        Support for anyone feeling down or in crisis<br>
+        🌐 <a href="https://www.thecalmzone.net" target="_blank">thecalmzone.net</a>
+    </div>
+
+    <h3 class="fade-section section-title">
+        <i class="fa-solid fa-hand-holding-heart"></i> Charities &amp; Ongoing Support
+    </h3>
+    <p class="fade-section pre-text">
+        There are a number of charities and support organisations that offer guidance, listening, and practical help.
+        You don't have to face things alone.
+    </p>
+
+    <div class="card fade-section">
+        <strong>Mind</strong><br>
+        📞 0300 123 3393 &nbsp;|&nbsp;
+        🌐 <a href="https://www.mind.org.uk" target="_blank">mind.org.uk</a>
+    </div>
+    <div class="card fade-section">
+        <strong>Rethink Mental Illness</strong><br>
+        📞 0808 801 0525 &nbsp;|&nbsp;
+        🌐 <a href="https://www.rethink.org" target="_blank">rethink.org</a>
+    </div>
+    <div class="card fade-section">
+        <strong>Anxiety UK</strong><br>
+        📞 03444 775 774 &nbsp;|&nbsp;
+        🌐 <a href="https://www.anxietyuk.org.uk" target="_blank">anxietyuk.org.uk</a>
+    </div>
+    <div class="card fade-section">
+        <strong>Beat (Eating Disorders)</strong><br>
+        📞 0808 801 0677 &nbsp;|&nbsp;
+        🌐 <a href="https://www.beateatingdisorders.org.uk" target="_blank">beateatingdisorders.org.uk</a>
+    </div>
+    <div class="card fade-section">
+        <strong>Bipolar UK</strong><br>
+        🌐 <a href="https://www.bipolaruk.org" target="_blank">bipolaruk.org</a>
+    </div>
+
+    <h3 class="fade-section section-title">
+        <i class="fa-solid fa-house-medical"></i> NHS Talking Therapies
+    </h3>
+    <p class="fade-section pre-text">
+        NHS Talking Therapies provide free and confidential support for anyone feeling stressed, anxious, or low.
+    </p>
+
+    <div class="card fade-section">
+        In England, self-refer to <strong>NHS Talking Therapies</strong> for free treatment.<br>
+        🌐 <a href="https://www.nhs.uk/service-search/mental-health/find-an-nhs-talking-therapies-service/"
+            target="_blank">Find local NHS talking therapies</a>
+    </div>
+    <div class="card fade-section">
+        In Scotland, <strong>Breathing Space</strong> offers confidential phone support.<br>
+        📞 0800 83 85 87 &nbsp;|&nbsp;
+        🌐 <a href="https://breathingspace.scot" target="_blank">breathingspace.scot</a>
+    </div>
+
+    <h3 class="fade-section section-title">
+        <i class="fa-solid fa-magnifying-glass"></i> Find Your Local Services
+    </h3>
+    <div class="card fade-section">
+        <strong>Hub of Hope</strong><br>
+        🌐 <a href="https://hubofhope.co.uk" target="_blank">hubofhope.co.uk</a>
+    </div>
+
+    <p class="note fade-section">
+        Disclaimer: This page is for signposting only and does not replace professional medical or mental health advice.
+        If you are in immediate danger, call 999 or go to your nearest emergency service.
+    </p>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'assets/js/support.js' %}"></script>
+{% endblock %}

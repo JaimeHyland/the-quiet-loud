@@ -80,6 +80,8 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',  # allauth
 )
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 ACCOUNT_LOGIN_METHODS = {'username'}
 LOGIN_REDIRECT_URL = "/today/"
@@ -89,7 +91,10 @@ LOGOUT_REDIRECT_URL = "/"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR.parent / 'frontend'],
+        'DIRS': [
+            BASE_DIR.parent / 'frontend',
+            BASE_DIR.parent / 'frontend' / 'templates',
+          ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -162,5 +167,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR.parent / 'frontend']
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")

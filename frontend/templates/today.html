@@ -1,0 +1,126 @@
+{% extends 'base_app.html' %}
+{% load static %}
+
+{% block title %}The Quiet Loud — Today{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'assets/css/today.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <div class="page-header">
+        <p class="date-label" id="todayDate"></p>
+        <h1 class="page-title">How are you <em>today?</em></h1>
+        <p class="page-sub">Write freely. No rules. No judgement. Just you.</p>
+    </div>
+
+    <!-- FREE WRITE -->
+    <div class="entry-section">
+        <div class="section-label">Your thoughts</div>
+        <textarea class="free-text" id="freeText"
+            placeholder="Just write. As much or as little as you want. What's on your mind today..." maxlength="2000"
+            minlength="100"></textarea>
+        <div class="char-count">
+            <span id="charCount">0</span> / 2000 —
+            <span id="minMsg" style="color: var(--gold);">100 characters minimum</span>
+        </div>
+    </div>
+
+    <!-- HABITS -->
+    <div class="entry-section">
+        <div class="section-label">Today's habits</div>
+        <div class="habits-grid">
+            <div class="habit-toggle" onclick="toggleHabit(this)" data-habit="sleep">
+                <span class="habit-icon">🌙</span>
+                <div class="habit-info">
+                    <span class="habit-label">Good sleep</span>
+                    <span class="habit-sub">7+ hours</span>
+                </div>
+                <div class="habit-check">✓</div>
+            </div>
+            <div class="habit-toggle" onclick="toggleHabit(this)" data-habit="move">
+                <span class="habit-icon">🏃</span>
+                <div class="habit-info">
+                    <span class="habit-label">Moved today</span>
+                    <span class="habit-sub">Walk, gym, stretch</span>
+                </div>
+                <div class="habit-check">✓</div>
+            </div>
+            <div class="habit-toggle" onclick="toggleHabit(this)" data-habit="outside">
+                <span class="habit-icon">🌿</span>
+                <div class="habit-info">
+                    <span class="habit-label">Time outside</span>
+                    <span class="habit-sub">Fresh air, nature</span>
+                </div>
+                <div class="habit-check">✓</div>
+            </div>
+            <div class="habit-toggle" onclick="toggleHabit(this)" data-habit="connect">
+                <span class="habit-icon">🤝</span>
+                <div class="habit-info">
+                    <span class="habit-label">Connected</span>
+                    <span class="habit-sub">Friend, family, colleague</span>
+                </div>
+                <div class="habit-check">✓</div>
+            </div>
+            <div class="habit-toggle" onclick="toggleHabit(this)" data-habit="water">
+                <span class="habit-icon">💧</span>
+                <div class="habit-info">
+                    <span class="habit-label">Hydrated</span>
+                    <span class="habit-sub">Drank enough water</span>
+                </div>
+                <div class="habit-check">✓</div>
+            </div>
+            <div class="habit-toggle" onclick="toggleHabit(this)" data-habit="screen">
+                <span class="habit-icon">📵</span>
+                <div class="habit-info">
+                    <span class="habit-label">Screen break</span>
+                    <span class="habit-sub">Time away from devices</span>
+                </div>
+                <div class="habit-check">✓</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLEEP HOURS -->
+    <div class="entry-section">
+        <div class="section-label">Hours slept</div>
+        <div class="sleep-options">
+            <button class="sleep-btn" onclick="selectSleep(this)">Under 5h</button>
+            <button class="sleep-btn" onclick="selectSleep(this)">5–6h</button>
+            <button class="sleep-btn" onclick="selectSleep(this)">6–7h</button>
+            <button class="sleep-btn" onclick="selectSleep(this)">7–8h</button>
+            <button class="sleep-btn" onclick="selectSleep(this)">8h+</button>
+        </div>
+    </div>
+
+    <!-- GRATITUDE -->
+    <div class="entry-section">
+        <div class="section-label">One thing you're grateful for</div>
+        <textarea class="gratitude-input" id="gratitudeText"
+            placeholder="It can be tiny. A good coffee, a kind word, the light through a window..."></textarea>
+    </div>
+
+    <!-- SAVE -->
+    <div class="save-section">
+        <button class="btn-save" id="saveBtn" onclick="saveEntry()" disabled style="opacity:0.5;">
+            Save today's entry ✓
+        </button>
+        <p class="save-note">Your words are yours. Private, safe, just for you.</p>
+        <div class="emotion-result" id="emotionResult" style="display:none;">
+            <div class="emotion-display">
+                <span class="emotion-icon" id="emotionIcon"></span>
+                <span class="emotion-label" id="emotionLabel"></span>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<div class="success-toast" id="toast">✨ Today's entry saved</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'assets/js/today.js' %}"></script>
+{% endblock %}
