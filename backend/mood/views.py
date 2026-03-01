@@ -1,10 +1,9 @@
-import pickle
+# import pickle
 import numpy as np
-from django.shortcuts import render, reverse, redirect
+# from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-import numpy as np
 from django.contrib.auth.decorators import login_required
 
 
