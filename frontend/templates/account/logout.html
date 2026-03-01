@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Signed Out — The Quiet Loud{% endblock %}
+{% block title %}
+  Signed Out — The Quiet Loud
+{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'assets/css/auth.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/auth.css' %}" />
 {% endblock %}
 
 {% block content %}
-<main>
+  <main>
     <div class="auth-card" style="text-align: center;">
-        <p class="auth-eyebrow">Until next time</p>
-        <h1 class="auth-title">You've been <em>signed out</em></h1>
-        <p class="auth-sub">Your words are safe. Come back whenever you're ready.</p>
-        <a href="/" class="btn-primary">Back to home</a>
-        <div class="auth-footer">
-            <a href="/accounts/login/">Sign back in</a>
-        </div>
+      <h1 class="auth-title">Are you sure you want to <em>sign out?</em></h1>
+      <p class="auth-sub">Your words are safe. Come back whenever you're ready.</p>
+      <div class="auth-footer">
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          <button class="btn-primary" type="submit">Sign Out</button>
+        </form>
+      </div>
     </div>
-</main>
+  </main>
 {% endblock %}
