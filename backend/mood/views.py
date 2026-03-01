@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import numpy as np
 from django.contrib.auth.decorators import login_required
+
 
 from . ml_service import model, tfidf, label_encoder
 from .models import Mood
@@ -35,10 +36,8 @@ def predict_emotion(request):
             habits=data["habits"]
         )
 
-        # CONSIDER INSTEAD ADDING A REDIRECT TO JOURNEY PAGE
         return JsonResponse({
-            'emotion': predicted_emotion,
-            'confidence': confidence
+            'redirect_url': "/journey/"
         })
     else:
         return JsonResponse({'error': 'POST request required'}, status=400)

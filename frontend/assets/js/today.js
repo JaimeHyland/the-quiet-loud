@@ -77,6 +77,7 @@ async function saveEntry() {
     const text = document.getElementById('freeText').value;
 
     try {
+        console.log("ATTEMPTING FETCH")
         const res = await fetch('/mood/predict/', {
             method: 'POST',
             headers: {
@@ -93,6 +94,10 @@ async function saveEntry() {
         });
 
         const data = await res.json();
+
+        if (data.redirect_url) {
+            window.location.href = data.redirect_url;
+        }
 
         if (data.emotion) {
             const emotion = emotionMap[data.emotion] || { icon: '💭', label: data.emotion };
