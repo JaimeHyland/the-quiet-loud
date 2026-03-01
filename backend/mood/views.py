@@ -1,10 +1,9 @@
-import pickle
+# import pickle
 import numpy as np
-from django.shortcuts import render, reverse, redirect
+# from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-import numpy as np
 from django.contrib.auth.decorators import login_required
 
 
@@ -27,7 +26,6 @@ def predict_emotion(request):
         # predicted_index = np.argmax(probabilities)
         # predicted_emotion = label_encoder.inverse_transform([predicted_index])[0]
         # confidence = float(np.max(probabilities))
-
 
         # with open('nn_model.pkl', 'rb') as f:
         #     load_model = pickle.load(f)
