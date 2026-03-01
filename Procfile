@@ -1,1 +1,1 @@
-web: gunicorn the-quiet-loud.wsgi
+web: gunicorn the_quiet_loud.wsgi
