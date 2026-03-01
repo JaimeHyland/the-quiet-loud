@@ -16,11 +16,18 @@ ML_PATH = os.path.join(BASE, 'ml_model')
 # with open(os.path.join(ML_PATH, 'tfidf_vectorizer.pkl'), 'rb') as f:
 #     tfidf = pickle.load(f)
 
-with open(os.path.join(ML_PATH, './nn_model.pkl'), 'rb') as f:
-    load_model = pickle.load(f)
+# with open(os.path.join(ML_PATH, './nn_model.pkl'), 'rb') as f:
+#     load_model = pickle.load(f)
 
 # with open(os.path.join(ML_PATH, 'label_encoder.pkl'), 'rb') as f:
 #     label_encoder = pickle.load(f)
     
-with open(os.path.join(ML_PATH,'label_encoder.pkl'), 'rb') as f: # If file in the root or provide the relative path
+# with open(os.path.join(ML_PATH,'label_encoder.pkl'), 'rb') as f: # If file in the root or provide the relative path
+#     label_encoder = pickle.load(f)
+
+with open(os.path.join(ML_PATH, 'nn_model.pkl'), 'rb') as f:
+    load_model = pickle.load(f)
+with open(os.path.join(ML_PATH, 'tfidf_vectorizer.pkl'), 'rb') as f:
+    tfidf = pickle.load(f)
+with open(os.path.join(ML_PATH, 'label_encoder.pkl'), 'rb') as f:
     label_encoder = pickle.load(f)
