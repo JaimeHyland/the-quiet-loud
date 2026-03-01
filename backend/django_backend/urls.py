@@ -19,10 +19,8 @@ from django.urls import path, include
 from .views import (
     home,
     today,
-    predict_emotion,
     journey,
     support,
-    thought_shift,
 )
 
 
@@ -32,7 +30,8 @@ urlpatterns = [
     path('journey/', journey, name='journey'),
     path('support/', support, name='support'),
     path('mood/', include('mood.urls'), name='mood_url'),
+    path('thought_shift/', include('thought_shift.urls'), name='mood_url'),
     path('admin/', admin.site.urls),
-    path("test_harness/", thought_shift, name='thought_shift'),
+    # path("test_harness/", thought_shift, name='thought_shift'),
     path('accounts/', include('allauth.urls')),
 ]
