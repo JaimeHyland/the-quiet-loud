@@ -19,25 +19,9 @@ def predict_emotion(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         user_text = [data.get('text', '')]
-        
-        # user_nn = tfidf.transform(user_text)
-        # user_dense = user_nn.toarray()
-        
-        # probabilities = model.predict(user_dense, verbose=0)[0]
-        # predicted_index = np.argmax(probabilities)
-        # predicted_emotion = label_encoder.inverse_transform([predicted_index])[0]
-        # confidence = float(np.max(probabilities))
-
-
-        # with open('nn_model.pkl', 'rb') as f:
-        #     load_model = pickle.load(f)
-        # with open('tfidf_vectorizer.pkl', 'rb') as f:
-        #     tfidf = pickle.load(f)
-        # with open('label_encoder.pkl', 'rb') as f:
-        #     label_encoder = pickle.load(f)
 
         user_answer = ["I feel so grateful today"]
-        user_nn = tfidf.transform(user_answer)
+        user_nn = tfidf.transform(user_text)
         user_dense = user_nn.toarray()
 
         y_pred = load_model.predict(user_dense)[0]
