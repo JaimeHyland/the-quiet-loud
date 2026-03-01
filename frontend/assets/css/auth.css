@@ -175,12 +175,14 @@ main {
     text-align: center;
 }
 
-.auth-footer a {
+.auth-footer a, 
+.auth-footer button {
     color: var(--gold);
     text-decoration: none;
 }
 
-.auth-footer a:hover {
+.auth-footer a:hover,
+.auth-footer button:hover {
     text-decoration: underline;
 }
 
