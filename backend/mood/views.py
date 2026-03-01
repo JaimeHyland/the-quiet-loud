@@ -8,8 +8,10 @@ from django.contrib.auth.decorators import login_required
 from . ml_service import model, tfidf, label_encoder
 from .models import Mood
 
+# ADD GET ALL USER_LOGGED_EMOTIONS
 
 @csrf_exempt
+@login_required
 def predict_emotion(request):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -23,6 +25,7 @@ def predict_emotion(request):
         predicted_emotion = label_encoder.inverse_transform([predicted_index])[0]
         confidence = float(np.max(probabilities))
         
+        # DB Manipulation
         mood = Mood.objects.create(
             user=request.user,
             user_mood_text=user_text,
@@ -37,6 +40,15 @@ def predict_emotion(request):
             'emotion': predicted_emotion,
             'confidence': confidence
         })
+    else:
         return JsonResponse({'error': 'POST request required'}, status=400)
     
-    return JsonResponse({'error': 'POST request required'}, status=400)
+@csrf_exempt
+@login_required
+def logged_emotions(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({"error":" Not authenticated"}, status=401)
+
+    user_emotions = Mood.objects.filter(user=request.user)
+    print("User emotions: ", )
+    return JsonResponse({"user_emotions": list(user_emotions.values("date", "gratitude", "habits", "id", "predicted_emotion", "sleep", "user", "user_id", "user_mood_text"))}, status=200)
