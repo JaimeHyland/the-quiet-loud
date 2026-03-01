@@ -16,7 +16,9 @@ import dj_database_url
 from dotenv import load_dotenv
 
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+# DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = False
+
 
 load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
 
