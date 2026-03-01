@@ -1,1 +1,1 @@
-web: gunicorn the_quiet_loud.wsgi
+web: gunicorn django_backend.wsgi
