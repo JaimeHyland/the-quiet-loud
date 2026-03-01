@@ -31,7 +31,7 @@ urlpatterns = [
     path('today/', today, name='today', ),
     path('journey/', journey, name='journey'),
     path('support/', support, name='support'),
-    path('predict/', predict_emotion, name='predict'),
+    path('mood/', include('mood.urls'), name='mood_url'),
     path('admin/', admin.site.urls),
     path("test_harness/", thought_shift, name='thought_shift'),
     path('accounts/', include('allauth.urls')),

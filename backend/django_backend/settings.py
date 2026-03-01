@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
     # Custom apps
     'thought_shift',
+    'mood'
 ]
 
 SITE_ID = 1
