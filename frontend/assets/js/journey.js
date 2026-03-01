@@ -20,9 +20,6 @@ const habitLabels = {
     screen: '📵 Screen break'
 };
 
-// ============================================================================================================
-// JAMES TESTING FETCH
-// CSRF helper
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -40,7 +37,6 @@ function getCookie(name) {
 
 async function loadEntries() {
     try {
-        console.log("Attempting fetch");
         const res = await fetch('/mood/logged-emotions/', {
             method: 'POST',
             headers: {
@@ -50,14 +46,12 @@ async function loadEntries() {
             credentials: "include"
         });
         const data = await res.json();
-        console.log("Data: ", data);
         renderEntries(data);
     } catch (e) {
         console.error('Getting user emotions failed', e);
         renderEntries([]);
     }
 }
-// ============================================================================================================
 
 // ── RENDER ENTRIES ──
 function renderEntries(entries) {
@@ -77,33 +71,33 @@ function renderEntries(entries) {
     const chartNote = document.getElementById('chartNote');
     if (chartNote) chartNote.style.display = 'none';
 
-    container.innerHTML = entries.map(entry => {
+    container.innerHTML = entries.user_emotions.map(entry => {
         const date = new Date(entry.date || entry.created_at);
         const dateStr = date.toLocaleDateString('en-GB', {
             weekday: 'long', day: 'numeric', month: 'long'
         });
 
-        const emotion = entry.emotion
-            ? (emotionMap[entry.emotion] || { icon: '💭', label: entry.emotion })
+
+        const emotion = entry.predicted_emotion
+            ? (emotionMap[entry.predicted_emotion] || { icon: '💭', label: entry.predicted_emotion })
             : null;
         const emotionHTML = emotion
             ? `<div class="entry-emotion">${emotion.icon} ${emotion.label}</div>`
             : '';
-
         const habitsHTML = (entry.habits || [])
             .map(h => `<span class="habit-chip">${habitLabels[h] || h}</span>`)
             .join('');
         const sleepHTML = entry.sleep
             ? `<span class="sleep-chip">🌙 ${entry.sleep}</span>`
             : '';
-        const textPreview = entry.text || entry.freeText
-            ? `<p class="entry-text">${entry.text || entry.freeText}</p>`
+        const textPreview = entry.user_mood_text
+            ? `<p class="entry-text">${entry.user_mood_text.replace(/[\[\],']/g, "")}</p>`
             : '';
 
         return `
             <div class="entry-card">
                 <div class="entry-card-header">
-                    <span class="entry-date">${dateStr}</span>
+                    <span class="entry-date">${entry.date}</span>
                     ${emotionHTML}
                 </div>
                 ${textPreview}
