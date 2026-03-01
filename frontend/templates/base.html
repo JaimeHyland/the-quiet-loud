@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}The Quiet Loud{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'assets/images/favicon/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'assets/images/favicon/apple-touch-icon.png' %}">
+    <link rel="manifest" href="{% static 'assets/images/favicon/site.webmanifest' %}">
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/base.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    {% include 'includes/_header.html' %}
+
+    {% block content %}{% endblock %}
+
+    {% include 'includes/_footer.html' %}
+
+    <!-- Base JS -->
+    <script src="{% static 'assets/js/base.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+
+</html>

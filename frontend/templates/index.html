@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}The Quiet Loud{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'assets/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg-text">quiet</div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">A space just for you</p>
+        <h1 class="hero-title">
+            The<br><em>Quiet</em><br>Loud
+        </h1>
+        <p class="hero-sub">
+            Turning your inner critic into your biggest fan.
+            Write freely, track your habits, and watch your
+            language — and your life — gently shift.
+        </p>
+        <div class="hero-actions">
+            <a href="/accounts/signup/" class="btn-primary">Begin today</a>
+            <a href="#how" class="btn-ghost">How it works <span>→</span></a>
+        </div>
+    </div>
+    <div class="hero-float">
+        <div class="float-card">
+            <div class="float-card-label">What you wrote</div>
+            <div class="float-card-text">"I don't think I'm good enough for this..."</div>
+        </div>
+        <div class="arrow-down">↓</div>
+        <div class="float-card">
+            <div class="float-card-label">A kinder truth</div>
+            <div class="float-card-text positive">"I'm still learning, and that takes courage."</div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how section" id="how">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">Small moments, meaningful change</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-title">Write freely</div>
+            <div class="step-text">No prompts. No scales. No checkboxes. Just write how you feel, in your own words, as
+                messy as you need.</div>
+        </div>
+        <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-title">Track your habits</div>
+            <div class="step-text">Log small things — sleep, movement, time outside, connection. See what actually makes
+                you feel good.</div>
+        </div>
+        <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-title">See your patterns</div>
+            <div class="step-text">Over time, your dashboard reveals your personal rhythms. Backed by real wellbeing
+                research, not guesswork.</div>
+        </div>
+        <div class="step">
+            <div class="step-num">04</div>
+            <div class="step-title">Watch the shift</div>
+            <div class="step-text">Your word cloud grows kinder. Your streaks build. Your inner voice, slowly, starts to
+                sound like a friend.</div>
+        </div>
+    </div>
+</section>
+
+<!-- OUR PROMISE -->
+<section class="promise section" id="promise">
+    <div class="section-label" style="color: var(--gold)">Our promise</div>
+    <h2 class="section-title" style="color: var(--cream)">Built with boundaries, on purpose</h2>
+    <div class="promise-grid">
+        <div class="promise-item">
+            <div class="promise-no">Not this</div>
+            <div class="promise-text">No emoji scales or number ratings</div>
+        </div>
+        <div class="promise-item">
+            <div class="promise-no">Not this</div>
+            <div class="promise-text">No mental health diagnosis or labels</div>
+        </div>
+        <div class="promise-item">
+            <div class="promise-no">Not this</div>
+            <div class="promise-text">No analysing anyone but yourself</div>
+        </div>
+        <div class="promise-item">
+            <div class="promise-no">Always this</div>
+            <div class="promise-text">A warm, judgment-free space for your words</div>
+        </div>
+        <div class="promise-item">
+            <div class="promise-no">Always this</div>
+            <div class="promise-text">Signposting to real help when you need it</div>
+        </div>
+        <div class="promise-item">
+            <div class="promise-no">Always this</div>
+            <div class="promise-text">First person only. This is about you.</div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2 class="cta-title">Your loudest thoughts, <em>softened</em></h2>
+    <a href="/accounts/signup/" class="btn-primary">Start for free</a>
+    <p class="cta-note">This app is a space for kindness, not diagnosis. If you're struggling, please reach out to
+        someone qualified to help.</p>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'assets/js/home.js' %}"></script>
+{% endblock %}

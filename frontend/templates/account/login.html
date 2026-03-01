@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Log In — The Quiet Loud{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'assets/css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="auth-card">
+        <p class="auth-eyebrow">Welcome back</p>
+        <h1 class="auth-title">Your space is <em>waiting</em></h1>
+        <p class="auth-sub">Pick up where you left off.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                <ul class="errorlist">
+                    {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+            {% if form.non_field_errors %}
+            <ul class="errorlist">
+                {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+            <div class="forgot-link">
+                <a href="/accounts/password/reset/">Forgot your password?</a>
+            </div>
+            <button type="submit" class="btn-submit">Sign in</button>
+        </form>
+
+        <div class="auth-footer">
+            New here? <a href="/accounts/signup/">Create an account</a>
+        </div>
+    </div>
+</main>
+{% endblock %}

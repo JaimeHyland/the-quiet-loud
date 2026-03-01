@@ -1,0 +1,66 @@
+{% extends 'base_app.html' %}
+{% load static %}
+
+{% block title %}The Quiet Loud — My Journey{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'assets/css/journey.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <div class="page-header">
+        <p class="page-eyebrow">Your story so far</p>
+        <h1 class="page-title">My <em>Journey</em></h1>
+        <p class="page-sub">Every entry is a step. Look how far you've come.</p>
+    </div>
+
+    <!-- MOOD CHART -->
+    <div class="chart-section">
+        <div class="section-label">Mood over time</div>
+        <div class="chart-container">
+            <div class="chart-placeholder">
+                <svg viewBox="0 0 700 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="0" y1="45" x2="700" y2="45" stroke="rgba(30,28,26,0.05)" stroke-width="1" />
+                    <line x1="0" y1="90" x2="700" y2="90" stroke="rgba(30,28,26,0.05)" stroke-width="1" />
+                    <line x1="0" y1="135" x2="700" y2="135" stroke="rgba(30,28,26,0.05)" stroke-width="1" />
+                    <path
+                        d="M0,120 C50,100 100,60 175,70 C250,80 300,110 375,85 C450,60 500,40 575,55 C625,65 660,80 700,75 L700,180 L0,180 Z"
+                        fill="rgba(201,169,110,0.08)" />
+                    <path
+                        d="M0,120 C50,100 100,60 175,70 C250,80 300,110 375,85 C450,60 500,40 575,55 C625,65 660,80 700,75"
+                        fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="175" cy="70" r="4" fill="#c9a96e" opacity="0.5" />
+                    <circle cx="375" cy="85" r="4" fill="#c9a96e" opacity="0.5" />
+                    <circle cx="575" cy="55" r="4" fill="#c9a96e" opacity="0.5" />
+                </svg>
+                <div class="chart-placeholder-note" id="chartNote">Add more entries to see your mood trend</div>
+            </div>
+            <div class="chart-label-row">
+                <span>30 days ago</span>
+                <span>2 weeks ago</span>
+                <span>This week</span>
+                <span>Today</span>
+            </div>
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#c9a96e; opacity:0.5;"></div>
+                    <span>Mood trend</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENTRIES -->
+    <div class="entries-section">
+        <div class="section-label">Past entries</div>
+        <div id="entriesList"></div>
+    </div>
+
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'assets/js/journey.js' %}"></script>
+{% endblock %}
