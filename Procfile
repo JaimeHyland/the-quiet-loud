@@ -1,1 +1,1 @@
-web: gunicorn backend.django_backend.wsgi
+web: gunicorn --chdir backend django_backend.wsgi
