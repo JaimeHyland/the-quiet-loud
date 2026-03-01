@@ -21,3 +21,10 @@ media/
 
 # Environment variables
 .env
+
+
+node_modules/
+dist/
+build/
+
+C:\Users\james\Desktop\nology\personal-upskilling\the-quiet-loud\backend\ml_model\example_loading_model.py
