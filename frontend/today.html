@@ -471,8 +471,9 @@
             <div class="section-label">Your thoughts</div>
             <textarea class="free-text" id="freeText"
                 placeholder="Just write. As much or as little as you want. What's on your mind today..."
-                maxlength="2000"></textarea> <!-- Text area 2000 spaces -->
-            <div class="char-count"><span id="charCount">0</span> / 2000</div>
+                maxlength="2000" minlength="100"></textarea> <!-- Text area min 100 up until 2000 spaces avaliable -->
+            <div class="char-count"><span id="charCount">0</span> / 2000 — <span id="minMsg"
+                    style="color: var(--gold);">100 characters minimum</span></div>
         </div>
 
         <!-- HABITS -->
@@ -551,7 +552,8 @@
 
         <!-- SAVE -->
         <div class="save-section">
-            <button class="btn-save" onclick="saveEntry()">Save today's entry ✓</button>
+            <button class="btn-save" id="saveBtn" onclick="saveEntry()" disabled style="opacity:0.5;">Save today's entry
+                ✓</button>
             <p class="save-note">Your words are yours. Private, safe, just for you.</p>
             <div class="emotion-result" id="emotionResult" style="display:none;">
                 <div class="emotion-display">
@@ -575,7 +577,20 @@
         const freeText = document.getElementById('freeText');
         const charCount = document.getElementById('charCount');
         freeText.addEventListener('input', () => {
-            charCount.textContent = freeText.value.length;
+            const len = freeText.value.length;
+            charCount.textContent = len;
+            const saveBtn = document.getElementById('saveBtn');
+            const minMsg = document.getElementById('minMsg');
+            if (len >= 100) {
+                saveBtn.disabled = false;
+                saveBtn.style.opacity = '1';
+                minMsg.style.display = 'none';
+            } else {
+                saveBtn.disabled = true;
+                saveBtn.style.opacity = '0.5';
+                minMsg.style.display = 'inline';
+                minMsg.textContent = `${100 - len} more characters needed`;
+            }
         });
 
         // Habit toggles

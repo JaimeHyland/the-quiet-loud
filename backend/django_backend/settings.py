@@ -54,8 +54,9 @@ INSTALLED_APPS = [
     # Allauth apps
     'allauth',
     'allauth.account',
-    
-    # Apps
+
+    # Custom apps
+    'thought_shift',
     'mood'
 ]
 
@@ -81,7 +82,7 @@ AUTHENTICATION_BACKENDS = (
 
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 ACCOUNT_LOGIN_METHODS = {'username'}
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/today/"
 LOGOUT_REDIRECT_URL = "/"
 
 
@@ -161,3 +162,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
