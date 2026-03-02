@@ -175,12 +175,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / "staticfiles_collected"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),  # your global static folder
+    BASE_DIR / "staticfiles" / "account",
+    BASE_DIR / "staticfiles" / "admin",
 ]
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
