@@ -46,7 +46,6 @@ The Quiet Loud is a space to meet that voice with something gentler. Write freel
 
 This is not a therapy app. It won't diagnose you or rate your feelings on a scale of one to ten. It will simply listen, reflect, and respond with kindness.
 
-*[Live app — link TBC Monday 3 March]*
 
 A "With Heart" hackathon project: a web app that helps users write freely about how they feel, receive a warm and human-centred emotional response, and track the small daily habits that make them thrive.
 
