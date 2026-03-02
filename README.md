@@ -1,5 +1,5 @@
 <div align="center">
-<img src="documentation/images/positive.png" width="120"> <img src="documentation/images/positive.png" width="120" style="transform: scaleX(-1);">
+<img src="documentation/images/positive.png" width="120"> <img src="documentation/images/positive_flip.png" width="120">
 
 # The Quiet Loud 🌿
 
