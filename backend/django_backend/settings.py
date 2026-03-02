@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
 
 
-load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
+# load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
 
 DATABASES = {
     'default': dj_database_url.config(
