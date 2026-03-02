@@ -1,7 +1,7 @@
 /* ============================================
    JOURNEY.JS — Journey page logic
    ============================================ */
-
+alert("JOURNEY JS SCRIPT")
 const emotionMap = {
     joy: { icon: '☀️', label: 'Joy' },
     love: { icon: '🤍', label: 'Love' },
@@ -36,6 +36,7 @@ function getCookie(name) {
 }
 
 async function loadEntries() {
+    console.log("INVOKING LOAD ENTRIES, FETCHING NOW")
     try {
         const res = await fetch('/mood/logged-emotions/', {
             method: 'POST',
@@ -46,6 +47,7 @@ async function loadEntries() {
             credentials: "include"
         });
         const data = await res.json();
+        console.log("DATA: ", data)
         renderEntries(data);
     } catch (e) {
         console.error('Getting user emotions failed', e);
@@ -55,6 +57,7 @@ async function loadEntries() {
 
 // ── RENDER ENTRIES ──
 function renderEntries(entries) {
+    // console.log("ENTRIES: ", entries)
     const container = document.getElementById('entriesList');
     if (!container) return;
 
@@ -108,5 +111,4 @@ function renderEntries(entries) {
             </div>`;
     }).join('');
 }
-
 loadEntries();
