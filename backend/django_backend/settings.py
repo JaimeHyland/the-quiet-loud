@@ -171,12 +171,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / "staticfiles_collected"
+STATIC_ROOT = BASE_DIR.parent / "frontend" / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
-    BASE_DIR.parent / "frontend" / "staticfiles",
+    BASE_DIR.parent / "frontend" / "assets",
 ]
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
