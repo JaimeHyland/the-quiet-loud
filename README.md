@@ -1,12 +1,63 @@
+<div align="center">
+
 # The Quiet Loud 🌿
 
 > *"Turning your inner critic into your biggest fan."*
+
+🌐 **[Live App](https://the-quiet-loud-2c55ac9d2764.herokuapp.com/)** | 📁 **[GitHub Repository](https://github.com/JaimeHyland/the-quiet-loud)**
+
+</div>
+
+---
+## Table of Contents
+- [The Story Behind It](#the-story-behind-it)
+- [User Experience](#user-experience)
+  - [Our Philosophy](#our-philosophy)
+  - [Types of Users](#types-of-users)
+  - [User Stories](#user-stories)
+  - [User Flow](#user-flow)
+- [Design](#design)
+  - [Colour Scheme](#colour-scheme)
+  - [Typography](#typography)
+  - [Wireframes](#wireframes)
+  - [Frontend Structure](#frontend-structure)
+  - [Backend Structure](#backend-structure)
+- [Features](#features)
+- [Data & Machine Learning](#data--machine-learning)
+- [Responsiveness](#responsiveness)
+- [Testing](#testing)
+- [Technologies and Languages](#technologies-and-languages)
+- [Deployment](#deployment)
+- [Team](#team--plot-twist-)
+- [Credits](#credits)
+
+
+
+# The Quiet Loud 🌿
+
+> *"Turning your inner critic into your biggest fan."*
+
+---
+
+Some of us carry a voice that never quite lets up. It second-guesses, it criticises, it replays. It's loud — even when we're quiet.
+
+The Quiet Loud is a space to meet that voice with something gentler. Write freely. Track the small things that shape your days. And over time, watch your language — and your life — begin to shift.
+
+This is not a therapy app. It won't diagnose you or rate your feelings on a scale of one to ten. It will simply listen, reflect, and respond with kindness.
+
+*[Live app — link TBC Monday 3 March]*
 
 A "With Heart" hackathon project: a web app that helps users write freely about how they feel, receive a warm and human-centred emotional response, and track the small daily habits that make them thrive.
 
 Underpinning the experience is a data analytics layer built on a real-world sentiment and emotion dataset. Using machine learning, the app analyses the user's own words to detect emotional tone — not to diagnose, but to respond with kindness. Over time, the app surfaces meaningful patterns: which habits correlate with better days, how language shifts, and what small changes make the biggest difference to wellbeing. The data doesn't drive the app — it gives it heart.
 
-This project was built by a team of seven across different time zones, skill levels, and life circumstances. With two team members unable to finish the journey, those who remained showed up anyway — learning, collaborating, and building something meaningful together. That, in itself, is a win worth celebrating. 👏
+---
+
+# The Story Behind It
+
+This project was built by a team of seven people across different time zones, skill levels, and life circumstances — as part of a February 2026 hackathon.
+
+Two of our team members couldn't complete the journey due to real-life circumstances beyond their control. Those who remained showed up anyway — learning, collaborating, debugging at 3am, and building something they genuinely believe in. That, in itself, is worth celebrating. 👏
 
 ---
 
@@ -32,22 +83,23 @@ This app was built with clear ethical boundaries from the start:
 - Neurodivergent users who may benefit from gentle emotional reflection support
 
 ## User Stories
+
+These aren't just features — they're promises to the people who use this app.
+
 - As a user, I can write freely about how I feel without being judged or rated
-- As a user, I receive a warm, supportive reframe based on my emotional tone
-- As a user, I can log simple daily habits (sleep, movement, time outside, connection)
-- As a user, I can write one thing I'm grateful for each day
-- As a user, I can see my patterns and streaks over time
-- As a user, I can always find signposting to professional support
-- As a user, I can navigate easily between all areas of the site
+- As a user, I receive a warm, supportive reframe based on my emotional tone — not a label
+- As a user, I can log simple daily habits that matter: sleep, movement, time outside, connection
+- As a user, I can write one thing I'm grateful for today — however small
+- As a user, I can see my patterns and streaks over time, and notice what actually makes me feel better
+- As a user, I can always find warm, clear signposting to professional support — without having to dig for it
+- As a user, I can move easily between all areas of the app, on any device
 
 ## User Flow
 1. User registers / logs in
 2. User writes freely — how they feel today, in their own words
 3. User logs simple daily habits
 4. User adds one gratitude entry
-5. App returns:
-   - A warm, encouraging reframe (based on emotional tone)
-   - Never a clinical label — always supportive language
+5. App returns a warm, encouraging reframe based on emotional tone — never a clinical label
 6. User can view their Journey dashboard — streaks, word cloud, habit patterns
 7. User can explore Insights — evidence-based wellbeing data
 8. Support page always accessible — professional help signposting
@@ -76,15 +128,19 @@ The colour palette was generated using [Coolors](https://coolors.co/c9a96e-f7f2e
 | `--mid` | `#6b6158` | Secondary text |
 | `--light` | `#a89e92` | Placeholder text |
 
-![Colour Palette](documentation/images/colour_scheme.png)
+<img src="documentation/images/colour_scheme.png" width="750">
 
 ## Typography
 
 ### Cormorant Garamond — Headings
 An elegant serif font that adds sophistication and a calm, reflective tone. Its delicate curves make headings feel distinctive and warm. [Google Fonts](https://fonts.google.com/specimen/Cormorant+Garamond)
 
+<img src="documentation/images/cormorant-garamond.png" width="750">
+
 ### DM Sans — Body Text
 A modern, geometric sans-serif font. Clean, highly legible, and accessible. Pairs beautifully with Cormorant Garamond for a professional yet gentle feel. [Google Fonts](https://fonts.google.com/specimen/DM+Sans)
+
+<img src="documentation/images/dm-sans-font.png" width="750">
 
 [Font Awesome](https://fontawesome.com/) icons are used throughout to keep the interface clean and visually intuitive.
 
@@ -92,13 +148,10 @@ A modern, geometric sans-serif font. Clean, highly legible, and accessible. Pair
 
 Wireframes were created by the team to plan the layout and structure of each page.
 
-| Page | Wireframe |
-| --- | --- |
-| Homepage | ![Homepage](documentation/images/wireframes/landing.png) |
-| Today | ![Today](documentation/images/wireframes/today.png) |
-| Journey | ![Journey](documentation/images/wireframes/journey.png) |
-| Support | ![Support](documentation/images/wireframes/support.png) |
-
+| Wireframes | | | |
+| --- | --- | --- | --- |
+| <img src="documentation/images/wireframes/landing.png" width="200"> | <img src="documentation/images/wireframes/today.png" width="200"> | <img src="documentation/images/wireframes/journey.png" width="200"> | <img src="documentation/images/wireframes/support.png" width="200"> |
+| Homepage | Today | Journey | Support |
 ---
 
 ## Frontend Structure
@@ -256,16 +309,9 @@ The app is designed mobile-first and tested across devices.
 ---
 
 # Testing
+Due to time constraints and reduced team capacity over the course of the hackathon, formal automated testing was not implemented in this iteration. Manual testing was carried out across key user journeys — registration, login, daily entry submission, and navigation between pages.
 
-## Frontend
-- Tested in Chrome, Firefox, Safari
-- Mobile responsive check
-- Navigation between all pages
-
-## Backend
-- API endpoints tested
-- Authentication flow tested
-- Entry save/retrieve tested
+Automated testing is noted as a priority for future development.
 
 ---
 
@@ -307,13 +353,14 @@ The app is designed mobile-first and tested across devices.
 4. Set environment variables in Heroku dashboard (DATABASE_URL, SECRET_KEY, DEBUG)
 5. Push to Heroku: `git push heroku main`
 6. Run migrations: `heroku run python manage.py migrate`
+
+## Local Setup
 1. Clone the repository: `git clone https://github.com/JaimeHyland/the-quiet-loud`
 2. Navigate to the backend: `cd backend`
 3. Install requirements: `pip install -r requirements.txt`
 4. Create a `.env` file with your `DATABASE_URL` and `SECRET_KEY`
 5. Run migrations: `python manage.py migrate`
 6. Start the server: `python manage.py runserver`
-7. Open `frontend/index.html` in your browser
 
 ## Creating a Fork
 1. Navigate to the repository
@@ -333,17 +380,20 @@ The app is designed mobile-first and tested across devices.
 ---
 
 # Team — Plot Twist 🎉
-*aka The Quiet Loud*
+
+Seven people. Different time zones. Different skill levels. Different life circumstances. One app.
+
+Two of our team couldn't complete the journey — real life stepped in, as it sometimes does. We built this in their spirit too. 🙏
 
 | Name | Role | LinkedIn |
 |------|------|----------|
-| Katarina | Scrum Master · Frontend | [kakilian](https://www.linkedin.com/in/kakilian) |
-| Jaime | Backend · Django · Auth | [language-landscapes](https://www.linkedin.com/in/language-landscapes/) |
-| Christopher | Backend · Testing | [christopher-bracken](https://www.linkedin.com/in/christopher-bracken-0b7263314/) |
-| Igor | Data Analytics · ML Model | TBC |
+| Kat | Scrum Master · Frontend | [kakilian](https://www.linkedin.com/in/kakilian) |
+| Jaime *(pronounced: Hy-me)* | Backend · Django · Auth | [language-landscapes](https://www.linkedin.com/in/language-landscapes/) |
+| Christopher *(aka. James)* | Backend · Testing | [christopher-bracken](https://www.linkedin.com/in/christopher-bracken-0b7263314/) |
+| Igor | Data Analytics · ML Model | [48at9vev-code](https://github.com/48at9vev-code) |
 | Natalia | Frontend · UI | [natalia-czeladka](https://www.linkedin.com/in/natalia-czeladka/) |
 | Abby | Documentation · Support | [abbyhumphreys](https://www.linkedin.com/in/abbyhumphreys/) |
-| Emmanuel | Team member — get well soon 🙏 | [Emmy-Dare274](https://www.linkedin.com/in/Emmy-Dare274) |
+| Emmy | Team member 🙏 | [Emmy-Dare274](https://www.linkedin.com/in/Emmy-Dare274) |
 
 ---
 
@@ -352,6 +402,6 @@ The app is designed mobile-first and tested across devices.
 - [Coolors](https://coolors.co) — colour palette generator
 - [Google Fonts](https://fonts.google.com) — Cormorant Garamond & DM Sans
 - [Font Awesome](https://fontawesome.com) — icons
-- [Claude](https://claude.ai) — code assistance, checking and project support
+- [Claude](https://claude.ai) — code assistance and checking
 - [ChatGPT](https://chat.openai.com) — code assistance and checking
 - [DeepSeek](https://chat.deepseek.com) — code assistance and checking
