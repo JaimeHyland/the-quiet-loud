@@ -1,0 +1,131 @@
+/* ============================================
+   SUPPORT.CSS — support.html page styles
+   ============================================ */
+
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 48px 80px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    margin-bottom: 24px;
+    color: var(--dark);
+}
+
+.intro {
+    font-size: 0.95rem;
+    color: var(--mid);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 700px;
+}
+
+/* ── SECTION HEADINGS ── */
+h3.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--dark);
+    margin: 48px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h3.section-title i {
+    color: var(--gold);
+}
+
+h3.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(30, 28, 26, 0.1);
+}
+
+.pre-text {
+    font-size: 0.88rem;
+    color: var(--light);
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+/* ── CARDS ── */
+.card {
+    background: white;
+    border: 1.5px solid rgba(30, 28, 26, 0.07);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 12px;
+    font-size: 0.92rem;
+    color: var(--dark);
+    line-height: 1.8;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.card:hover {
+    border-color: rgba(201, 169, 110, 0.3);
+    transform: translateY(-2px);
+}
+
+.card strong {
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.card.emergency {
+    background: var(--dark);
+    color: var(--cream);
+    border-color: var(--dark);
+}
+
+.card.emergency strong {
+    color: var(--gold);
+}
+
+.card.emergency p {
+    color: rgba(247, 242, 235, 0.85);
+    margin-bottom: 6px;
+}
+
+/* ── LINKS ── */
+a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ── NOTE ── */
+.note {
+    margin-top: 60px;
+    font-size: 0.82rem;
+    color: var(--light);
+    font-style: italic;
+    border-top: 1px solid rgba(30, 28, 26, 0.08);
+    padding-top: 24px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 24px 60px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3.section-title {
+        font-size: 1.3rem;
+    }
+}
