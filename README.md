@@ -341,11 +341,13 @@ Automated testing is noted as a priority for future development.
 ---
 
 # Deployment
-
+<div align="center">
 ## Live App
-*Deployed on Heroku — link TBC Monday 3 March*
 
-> ⚠️ **Please note:** The app is hosted on Heroku's eco tier. If it has been inactive, the first load may take 30–60 seconds to wake up. This is normal — please be patient on first visit. Once running, the app performs as expected.
+🌐 **[Live App](https://the-quiet-loud-2c55ac9d2764.herokuapp.com/)**
+
+</div>
+ ⚠️ **Please note:** The app is hosted on Heroku's eco tier. If it has been inactive, the first load may take 30–60 seconds to wake up. This is normal — please be patient on first visit. Once running, the app performs as expected.
 
 ## Heroku Deployment
 1. Create a Heroku account and install the Heroku CLI
