@@ -71,7 +71,7 @@ function renderEntries(entries) {
     const chartNote = document.getElementById('chartNote');
     if (chartNote) chartNote.style.display = 'none';
 
-    container.innerHTML = entries.user_emotions.map(entry => {
+    container.innerHTML = entries.user_emotions.sort((a, b) => b.id - a.id).map(entry => {
         const date = new Date(entry.date || entry.created_at);
         const dateStr = date.toLocaleDateString('en-GB', {
             weekday: 'long', day: 'numeric', month: 'long'
@@ -108,5 +108,4 @@ function renderEntries(entries) {
             </div>`;
     }).join('');
 }
-
 loadEntries();

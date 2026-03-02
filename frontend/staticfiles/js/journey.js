@@ -57,7 +57,7 @@ async function loadEntries() {
 
 // ── RENDER ENTRIES ──
 function renderEntries(entries) {
-    // console.log("ENTRIES: ", entries)
+    console.log("ENTRIES: ", entries)
     const container = document.getElementById('entriesList');
     if (!container) return;
 
