@@ -23,7 +23,10 @@ DEBUG = False
 load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True)
 }
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,7 +40,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-key')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-EBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
+DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
 
@@ -111,16 +114,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'django_backend.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
-}
 
 
 # Password validation
