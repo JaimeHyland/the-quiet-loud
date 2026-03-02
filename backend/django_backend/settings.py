@@ -175,6 +175,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles_collected"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
+STATICFILES_DIRS = [
+    BASE_DIR.parent / "frontend" / "staticfiles",
+]
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
