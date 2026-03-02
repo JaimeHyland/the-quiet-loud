@@ -1,4 +1,5 @@
 <div align="center">
+<img src="documentation/images/positive.png" width="120"> <img src="documentation/images/positive.png" width="120" style="transform: scaleX(-1);">
 
 # The Quiet Loud 🌿
 
@@ -405,3 +406,20 @@ Two of our team couldn't complete the journey — real life stepped in, as it so
 - [Claude](https://claude.ai) — code assistance and checking
 - [ChatGPT](https://chat.openai.com) — code assistance and checking
 - [DeepSeek](https://chat.deepseek.com) — code assistance and checking
+
+
+
+
+
+<br>
+
+
+<div align="center">
+
+> *"If you want to go fast, go alone.......  
+If you want to go far, go together."*
+> — African Proverb
+
+</div>
+
+<br>
