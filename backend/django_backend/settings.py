@@ -35,10 +35,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-key')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    'django-insecure-ln2w=mw^rw1gwf#4sy5#g)dr)xk^jjr$j*q4ldr0k)*j%9)h!d'
-)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -179,9 +175,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles_collected"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles" / "account",
-    BASE_DIR / "staticfiles" / "admin",
-]
+STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
