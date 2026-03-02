@@ -341,7 +341,6 @@ Automated testing is noted as a priority for future development.
 
 # Deployment
 <div align="center">
-## Live App
 
 🌐 **[Live App](https://the-quiet-loud-2c55ac9d2764.herokuapp.com/)**
 
